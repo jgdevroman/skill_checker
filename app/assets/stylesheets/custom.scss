@@ -1,0 +1,46 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// universal
+
+body {
+    padding: 30px 0
+}
+
+h1 {
+    font-weight: 700;
+}
+
+section {
+    overflow: auto;
+}
+
+textarea {
+    resize: vertical;
+}
+
+header {
+    #logo {
+        
+    }
+}
+
+.center {
+    text-align: center;
+    padding-bottom: 20vh;
+    margin-top: 3em;
+
+    h1 {
+        font-size: 4em;
+        margin-top: 20vh;
+    }
+    
+    .btn {
+        margin-top: 5rem;
+    }
+}
+
+
+#railslogo {
+    width: 10rem;
+}
