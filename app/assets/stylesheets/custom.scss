@@ -1,11 +1,16 @@
-@import "bootstrap-sprockets";
+/* variables */
+$background-color: white;
+$link-color: rgb(131, 131, 131);
+$primary: #00a4bb; //change primary color of bootstrap
+
+
 @import "bootstrap";
 
-// universal
+/* universal */
 
-body {
-    padding: 30px 0
-}
+// body {
+//     // padding: 30px 0;
+// }
 
 h1 {
     font-weight: 700;
@@ -19,20 +24,45 @@ textarea {
     resize: vertical;
 }
 
+
+
+/* local elements */
 header {
-    #logo {
-        
+    background-color: $background-color;
+
+    ul {
+        a {
+            color: $link-color
+        }
     }
 }
+
+#logo {
+    font-weight: 700;
+    font-size: 1.7em;
+    text-transform: uppercase;
+    color: $primary;
+}
+
+
 
 .center {
     text-align: center;
     padding-bottom: 20vh;
-    margin-top: 3em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    background-color: $background-color;
+    p {
+        a {
+            color: $primary
+        }
+    }   
 
     h1 {
-        font-size: 4em;
-        margin-top: 20vh;
+        &#welcome{
+            // font-size: 3.5em;
+            margin-top: 15vh;
+        }
     }
     
     .btn {
@@ -41,6 +71,23 @@ header {
 }
 
 
-#railslogo {
-    width: 10rem;
+/* footer */
+footer {
+    hr {
+        margin: 0.3em 0;
+    }
+    padding-bottom: 0.5em;
+    ul {
+        margin: 0;
+    }
+    
+    a {
+        padding: 0 0.5em;
+    }
+
+
+    #railslogo {
+        width: 6rem;
+        display: inline-block;
+    }
 }
