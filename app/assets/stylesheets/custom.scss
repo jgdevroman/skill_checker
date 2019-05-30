@@ -31,8 +31,6 @@ textarea {
     margin-top: 0.3em;
 }
 
-
-
 /* local elements */
 header {
     background-color: $background-color;
@@ -102,13 +100,52 @@ header {
     }
 }
 
-.signupform {
-    input, textarea, select, .uneditable-input {
-        border: 1px solid #bbb;
+/* Forms */
+
+.form {
+
+    /* Error Messages */
+    #error-messages {
+        margin-top: 1em;
+        .alert {
+            color: red;
+        }
+        
+        li {
+            color: red;
+        }
+    }
+    
+    .field_with_errors {
+        // @extend .has-warning;
+        .form-control {
+            border-color: $danger;
+        }
+    }
+
+
+    margin-bottom: 10vh;
+    h1 {
+        margin-top: 10vh;
+    }
+    .textfield, textarea, input {
         width: 100%;
         margin-bottom: 15px;
         @include box_sizing;
     }
+    
+    .textfield {
+        border: 1px solid #bbb;
+        border-radius: 4px;
+        height: auto !important;
+
+        &:focus{
+            outline: none;
+            border-color: $primary;
+            box-shadow: 0 0 10px lighten($primary, 20%);
+        }
+    }
+    
 }
 
 
