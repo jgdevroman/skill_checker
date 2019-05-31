@@ -1,32 +1,32 @@
 <% provide(:title, "Sign up") %>
 
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form">
-            
-                <h1 class="d-flex justify-content-center">Sign up</h1>
+<div class="container vertical-center">
+    
+    <div class="col-md-6">
+        <div class="form">
+        
+            <h1 class="d-flex justify-content-center">Sign up</h1>
 
-                <%= render "shared/error_messages" %>
-                
-                <%= form_for(@user, url: signup_path) do |f| %>
-                    <%= f.label :name %>
-                    <%= f.text_field :name, class: "form-control"%>
-        
-                    <%= f.label :email %>
-                    <%= f.text_field :email, class: "form-control"%>
-        
-                    <%= f.label :password %>
-                    <%= f.password_field :password, class: "form-control" %>
-        
-                    <%= f.label :password_confirmation %>
-                    <%= f.password_field :password_confirmation, class: "form-control" %>
-        
-                    <%= f.submit "Register", class: "btn btn-primary" %>
-                <% end %>
-            </div>
+            <%= render "shared/error_messages" %>
+            
+            <%= form_for(@user, url: signup_path) do |f| %>
+                <%= f.label :name %>
+                <%= f.text_field :name, class: "form-control"%>
+    
+                <%= f.label :email %>
+                <%= f.text_field :email, class: "form-control"%>
+    
+                <%= f.label :password %>
+                <%= f.password_field :password, class: "form-control" %>
+    
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+    
+                <%= f.submit "Register", class: "btn btn-primary" %>
+            <% end %>
         </div>
     </div>
+    
 
     
 </div>

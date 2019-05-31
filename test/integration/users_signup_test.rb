@@ -30,10 +30,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
             password: "1234567890",
             password_confirmation: "1234567890" 
         }}
-      end
+    end
     follow_redirect!
     assert_template "users/show"
     assert_not flash.empty?
+    assert is_logged_in
   end
 
 end
