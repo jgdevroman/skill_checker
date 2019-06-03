@@ -1,0 +1,12 @@
+<% provide(:title, "All Users") %>
+
+<div class="container">
+    <h1 class="d-flex justify-content-center">All Users</h1>
+    <div class="userindex">
+        <%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+            <ul class="users">
+                <%= render @users %>
+            </ul>
+        <%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+    </div>
+</div>

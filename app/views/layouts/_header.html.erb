@@ -4,12 +4,12 @@
     <ul class="nav navbar-nav d-flex justify-content-end" >
 
         <% if logged_in %>
-            <li class="nav-link"><%= link_to "Users", "#" %></li>
+            <li class="nav-link"><%= link_to "Users", users_path %></li>
             <li class="dropdown">
                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <%= link_to "Profile", current_user, class: "dropdown-item" %>
-                    <%= link_to "Settings", "#", class: "dropdown-item" %>
+                    <%= link_to "Settings", edit_user_path(current_user), class: "dropdown-item" %>
                     <div class="dropdown-divider"></div>
                     <%= link_to "Log out", logout_path, method: :delete, class: "dropdown-item" %>
                 </div>

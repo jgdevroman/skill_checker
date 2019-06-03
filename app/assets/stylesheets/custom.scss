@@ -17,6 +17,7 @@ $primary: #00a4bb; //change primary color of bootstrap
 
 h1 {
     font-weight: 700;
+    padding-top: 0.5em;
 }
 
 section {
@@ -34,7 +35,8 @@ textarea {
 
 
 .vertical-center {
-    height: calc(100vh - 71.6px);
+    min-height: calc(100vh - 71.6px);
+    padding: 1em 0;
     width: 100%;
     display: flex;
     align-items: center;
@@ -97,24 +99,48 @@ header {
     @include box_sizing;
 }
 
-/* Show User */
-.container{
-    &#showuser {
-        /* Sidebar */
-        .sidebar {
-            margin: 1em;
-            h3 {
-                padding-top: 0.5em;
-                font-weight: 600;
-            } 
+/* Index User */
+.userindex {
+    padding-top: 1em;
+    .users {
+        list-style: none;
+        li {
+            overflow: auto;
+            padding: 1em 0;
+            border-bottom: 1px solid #bbb;
         }
     }
+    .delete-link {
+        float: right;
+    }
+    
 }
+/* Show User */
+#showuser {
+    /* Sidebar */
+    .sidebar {
+        margin: 1em;
+        h3 {
+            padding-top: 0.5em;
+            font-weight: 600;
+        } 
+    }
+}
+
+/* Edit User */
+
+.gravatar-edit {
+    margin: 1em 0;
+}
+
+
 
 /* Forms */
 
 .form {
-    
+    h3 {
+        margin-top: 2em;
+    }
     /* Error Messages */
     #error-messages {
         margin-top: 1em;

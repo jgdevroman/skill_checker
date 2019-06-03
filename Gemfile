@@ -19,9 +19,19 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 
+#Jquery
 gem 'jquery-rails', '~> 4.3.1'
+
+#Bootstrap
 gem 'bootstrap', '~> 4.3.1'
 # gem 'bootstrap-sass', '~> 3.3.7'
+
+# Seed fake accounts
+gem 'faker', '~> 1.7.3'
+
+#Pagination
+gem 'will_paginate', '~> 3.1.6'
+gem 'bootstrap-will_paginate', '~> 1.0.0'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
