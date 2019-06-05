@@ -30,7 +30,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'faker', '~> 1.7.3'
 
 #Pagination
-gem 'will_paginate', '~> 3.1.6'
+gem 'will_paginate', '>= 3.1.6'
 gem 'bootstrap-will_paginate', '~> 1.0.0'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

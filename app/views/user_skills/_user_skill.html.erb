@@ -1,0 +1,9 @@
+<div id="user-skill-<%= user_skill.id %>" class="skill-item d-flex align-items-center<%= " float-left" if i >= 6%>" >
+    <div class="skill-endorsement-button">
+    <p class="endorsement-num"><%= user_skill.endorsement %></p>
+    </div>
+    <p class="skill-name"><%= user_skill.name %></p>
+    <% if current_user?(User.find(user_skill.user_id)) %>
+        <%= link_to "×", user_skill, method: :delete, data: {confirm: "Are you sure to delete this skill?"}, class: "delete-link" %>
+    <% end %>
+</div>

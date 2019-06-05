@@ -12,13 +12,24 @@
 #     password: "123456",
 #     password_confirmation: "123456")
 
-99.times do |n|
-    name = Faker::Name.name
-    email = "example-#{n+1}@railstutorial.org"
-    password = "password"
-    User.create!(
-        name: name,
-        email: email,
-        password: password,
-        password_confirmation: password)
+# 99.times do |n|
+#     name = Faker::Name.name
+#     email = "example-#{n+1}@railstutorial.org"
+#     password = "password"
+#     User.create!(
+#         name: name,
+#         email: email,
+#         password: password,
+#         password_confirmation: password)
+# end
+
+users = User.order(:id).take(7)
+50.times do |n|
+    name = "Cool Skill #{n+1}"
+    users.each do |user| 
+        if user.id == 1
+            next
+        end
+        user.user_skills.create!(name: name)
+    end
 end

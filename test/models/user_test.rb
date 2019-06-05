@@ -72,4 +72,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "associated user skills should be destroyed" do
+    @user.save
+    @user.user_skills.create!(name: "walk")
+    assert_difference "UserSkill.count", -1 do
+      @user.destroy
+    end
+  end
+
 end

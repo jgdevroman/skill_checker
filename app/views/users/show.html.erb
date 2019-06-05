@@ -1,11 +1,32 @@
 <% provide(:title, @user.name) %>
 <div class="container" id="showuser">
-    <aside class="row">
-        <section class="sidebar col-md-4">
-            
-            <%= gravatar_for @user %>
-            <h3><%= @user.name %></h3>
-            
-        </section>
-    </aside>
+    <div class="row">
+        <aside class="col-md-4">
+            <section class="sidebar ">
+                
+                <%= gravatar_for @user %>
+                <h3><%= @user.name %></h3>
+                
+            </section>
+        </aside>
+        <div class="col-md-8">
+            <section class="skill-section">
+                <h3>Skills</h3>
+                <% if logged_in %>
+                    <%= render partial: 'user_skills/form', locals: {user: @user} %>
+                <% end %>
+                <% if @user.user_skills.any? %>
+                    <div class="skill-list">
+                        <% @user_skills.each_with_index do |user_skill, index| %>
+                            <% if user_skill.name.empty? || user_skill.name.length > 50 %>
+                              <% next %>
+                            <% end %>
+                            <%= render partial: 'user_skills/user_skill', locals: {user_skill: user_skill, i: index} %>
+                        <% end %>
+                    </div>
+                    <%# will_paginate(@user_skills, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+                <% end %>
+            </section>
+        </div>
+    </div>
 </div>

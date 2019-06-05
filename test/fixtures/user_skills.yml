@@ -1,0 +1,14 @@
+sleep:
+  name: "Sleeping"
+  endorsement: 1
+  user: one
+
+eat:
+  name: "Eating"
+  endorsement: 0
+  user: two
+
+most_endorsed:
+    name: "Chilling"
+    endorsement: 99
+    user: one

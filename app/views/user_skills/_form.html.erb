@@ -1,0 +1,14 @@
+<% ph_text = "New skill" %>
+<% if !current_user?(@user) %>
+  <% ph_text = "Recommend a skill" %>
+<% end %>
+<%= form_for(@user_skill) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="skill-input d-flex col-md-8">
+        <%= f.text_field :name, class: "form-control", placeholder: ph_text %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.submit "Add", class: "btn btn-primary" %>
+    </div>
+
+<% end %>
+

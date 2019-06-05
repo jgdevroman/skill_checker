@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+    has_many :user_skills, dependent: :destroy
+    default_scope -> {order(:id)}
+
     before_save {email.downcase!}
 
     validates :name, presence: true, length: {maximum: 50}
