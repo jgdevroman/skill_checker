@@ -1,0 +1,10 @@
+<% if logged_in %>
+  
+    <%= form_for(endorse_skill.endorsements.build) do |f|%>
+        <div class="plus"><span>+</span></div>
+        <div><%= hidden_field_tag :user_skill_id, endorse_skill.id %></div>
+        <%= f.submit "",class: "invisible-button" %>
+
+    <% end %>
+
+<% end %>

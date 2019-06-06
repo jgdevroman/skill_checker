@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_skills = @user.user_skills.all
+    @user_skills = @user.user_skills.includes(:endorsements, :endorsers)
     @user_skill = @user.user_skills.build if logged_in
   end
 

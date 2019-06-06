@@ -13,19 +13,17 @@
             <section class="skill-section">
                 <h3>Skills</h3>
                 <% if logged_in %>
-                    <%= render partial: 'user_skills/form', locals: {user: @user} %>
+                    <%= render partial: 'user_skills/form' %>
                 <% end %>
-                <% if @user.user_skills.any? %>
-                    <div class="skill-list">
-                        <% @user_skills.each_with_index do |user_skill, index| %>
-                            <% if user_skill.name.empty? || user_skill.name.length > 50 %>
-                              <% next %>
-                            <% end %>
-                            <%= render partial: 'user_skills/user_skill', locals: {user_skill: user_skill, i: index} %>
-                        <% end %>
-                    </div>
-                    <%# will_paginate(@user_skills, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
-                <% end %>
+                <div class="skill-list">
+                    <% @user_skills.each.with_index do |user_skill, index| %>
+                        <% next if user_skill.name.empty? || user_skill.name.length > 50 %>
+                        <%#next if @error %>
+                        <%= render partial: 'user_skills/user_skill', locals: {user_skill: user_skill, i: index} %>
+                    <% end %>
+                </div>
+                <%# will_paginate(@user_skills, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+                
             </section>
         </div>
     </div>

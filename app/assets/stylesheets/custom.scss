@@ -43,6 +43,19 @@ textarea {
     justify-content: center;
 }
 
+.invisible-button {
+    // font-size: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none !important;
+    cursor: pointer;
+    
+}
+
 /* local elements */
 header {
     background-color: $background-color;
@@ -148,15 +161,55 @@ header {
                     }
                     &.endorsement-num {
                         font-size: 20px;
+                        color: $primary;
                     }
                     
                 }
+                .endorser-list {
+                    width: 60%;
+                    .circle {
+                        padding: 0;
+                        margin: 0;
+                        img {
+                            border-radius: 50%;
+                        }
+                    }
+                }
                 .skill-endorsement-button {     
+                    position: relative;
                     width: 36px;
                     height: 36px;
                     border: solid 2px $primary;
                     border-radius: 50%;
                     text-align: center;
+                    &.disabled {
+                        background-color: rgb(110, 109, 109);
+                        border: none;
+                        .endorsement-num {
+                            color: white;
+                        }
+
+                    }
+                    .plus{
+                        text-align: center;
+                        position: absolute;
+                        background-color: $primary;
+                        font-size: 15px;
+                        color: white;
+                        border-radius: 50%;
+                        width: 15px;
+                        height: 15px;
+                        top: 20px;
+                        left: 20px;
+                        padding: 0;
+                        margin: 0;
+                        span {
+                            position: relative;
+                            height: 15px;
+                            top: -5px;
+                            // left: -1px;
+                        }
+                    }
                 }
 
                 &.float-left {

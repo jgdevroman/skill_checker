@@ -10,17 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_060838) do
+ActiveRecord::Schema.define(version: 2019_06_06_045638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "endorsements", force: :cascade do |t|
+    t.integer "endorser_id"
+    t.bigint "user_skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["endorser_id", "user_skill_id"], name: "index_endorsements_on_endorser_id_and_user_skill_id"
+    t.index ["endorser_id"], name: "index_endorsements_on_endorser_id"
+    t.index ["user_skill_id"], name: "index_endorsements_on_user_skill_id"
+  end
+
   create_table "user_skills", force: :cascade do |t|
     t.string "name"
-    t.integer "endorsement"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "endorsements_count", default: 0
     t.index ["name", "user_id"], name: "index_user_skills_on_name_and_user_id"
     t.index ["user_id"], name: "index_user_skills_on_user_id"
   end
@@ -35,5 +45,6 @@ ActiveRecord::Schema.define(version: 2019_06_04_060838) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "endorsements", "user_skills"
   add_foreign_key "user_skills", "users"
 end

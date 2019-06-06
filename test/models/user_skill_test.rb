@@ -43,16 +43,5 @@ class UserSkillTest < ActiveSupport::TestCase
     assert_not @uskill.valid?
   end
 
-  test "endorsement should be present and min 0 and max 99" do
-    @uskill.endorsement = nil
-    assert_not @uskill.valid?
-    @uskill.endorsement = 100
-    assert_not @uskill.valid?
-  end
-
-  test "order should be with most endorsements first" do
-    assert_equal user_skills(:most_endorsed), UserSkill.first
-  end
-
 
 end
