@@ -1,0 +1,6 @@
+<div class="skill-endorsement-button <%= "disabled" if user_skill.endorsed?(current_user) %>"> 
+    <% condition = !user_skill.endorsed?(current_user) && !current_user?(user) %>
+    <%= render partial: 'user_skills/endorse', locals: {endorse_skill: user_skill} if condition%>
+
+    <p class="endorsement-num"><%= user_skill.endorsements_count %></p>
+</div>

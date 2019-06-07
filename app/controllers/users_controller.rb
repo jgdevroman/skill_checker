@@ -12,8 +12,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    store_location
     @user = User.find(params[:id])
-    @user_skills = @user.user_skills.includes(:endorsements, :endorsers)
+    @user_skills = @user.user_skills.includes(:endorsements, :endorsers, :skill_tag)
     @user_skill = @user.user_skills.build if logged_in
   end
 

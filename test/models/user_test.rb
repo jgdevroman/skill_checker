@@ -74,7 +74,8 @@ class UserTest < ActiveSupport::TestCase
 
   test "associated user skills should be destroyed" do
     @user.save
-    @user.user_skills.create!(name: "walk")
+    tag = SkillTag.create!(name: "walk")
+    @user.user_skills.create!(name: "walk", skill_tag_id: tag.id)
     assert_difference "UserSkill.count", -1 do
       @user.destroy
     end

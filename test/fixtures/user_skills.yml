@@ -1,11 +1,14 @@
 sleep:
   name: "Sleeping"
   user: one
+  skill_tag: sleeping
 
 eat:
   name: "Eating"
   user: two
+  skill_tag: eating
 
 most_endorsed:
     name: "Chilling"
     user: one
+    skill_tag: chilling

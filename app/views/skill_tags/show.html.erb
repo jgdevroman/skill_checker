@@ -1,0 +1,29 @@
+<div class="container">
+    
+    <div class="row">
+        <aside class="col-md-4">
+            <section>
+                <h1><%= @skill_tag.name %></h1>
+                <p>
+                    <%= @experts.first.name %>
+                    <% count = @experts.count %>
+                    <% if count > 1 %>
+                        and <%= pluralize(count - 1, 'other') %>
+                    <% end %>
+                    <% if logged_in %>
+                        <%= render 'skill_button' %>
+                    <% end %>           
+                </p>
+            </section>
+        </aside>
+        <div class="col-md-8 skill-cards">
+            <h4>Other users who have added this skill:</h4>
+            <div class="d-flex flex-wrap justify-content-sm-around">
+                <% @user_skills.each do |skill| %>
+                    <%= render partial: 'card', locals: {skill: skill} %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_many :user_skills, dependent: :destroy
     has_many :endorsements, foreign_key: "endorser_id", dependent: :destroy
+    # has_many :skill_tags, through: :user_skills
     default_scope -> {order(:id)}
     has_many :endorsing, through: :endorsements, source: :user_skill
 

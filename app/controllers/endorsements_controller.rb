@@ -5,7 +5,8 @@ class EndorsementsController < ApplicationController
     def create
         user_skill = UserSkill.find(params[:user_skill_id])
         current_user.endorse(user_skill)
-        redirect_to user_path(user_skill.user)
+        flash[:success] = "Skill endorsed!"
+        redirect_back_or(user_path(user_skill.user)) 
     end
 
     private

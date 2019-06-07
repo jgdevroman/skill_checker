@@ -13,10 +13,14 @@ User.create!(
     password_confirmation: "123456",
     admin: 1)
 
-User.first.user_skills.create!(name: "Eat")
-User.first.user_skills.create!(name: "Sleep")
-User.first.user_skills.create!(name: "Code")
-User.first.user_skills.create!(name: "Repeat")
+eat_tag = SkillTag.create!(name: "Eat")
+sleep_tag = SkillTag.create!(name: "Sleep")
+ct = SkillTag.create!(name: "Code")
+rt = SkillTag.create!(name: "Repeat")
+User.first.user_skills.create!(name: "Eat", skill_tag_id: eat_tag.id)
+User.first.user_skills.create!(name: "Sleep", skill_tag_id: sleep_tag.id)
+User.first.user_skills.create!(name: "Code", skill_tag_id: ct.id)
+User.first.user_skills.create!(name: "Repeat", skill_tag_id: rt.id)
 
 99.times do |n|
     name = Faker::Name.name
@@ -29,14 +33,15 @@ User.first.user_skills.create!(name: "Repeat")
         password_confirmation: password)
 end
 
-users = User.order(:id).take(7)
+users = User.order(:id).take(50)
 50.times do |n|
     name = "Cool Skill #{n+1}"
+    tag = SkillTag.create!(name: name)
     users.each do |user| 
         if user.id == 1
             next
         end
-        user.user_skills.create!(name: name)
+        user.user_skills.create!(name: name, skill_tag_id: tag.id)
     end
 end
 
@@ -48,5 +53,6 @@ endorsers = users[1..70]
 other_endorsers = users[30..60]
 endorsing.each {|e| user.endorse(e.user_skills.first)}
 endorsers.each {|e| e.endorse(user.user_skills.first)}
+other_endorsers.each {|e| e.endorse(user.user_skills[3])}
 endorsers.each {|e| e.endorse(second_user.user_skills.first)}
 other_endorsers.each {|e| e.endorse(user.user_skills.all[6])}

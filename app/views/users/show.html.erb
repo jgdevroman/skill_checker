@@ -19,7 +19,7 @@
                     <% @user_skills.each.with_index do |user_skill, index| %>
                         <% next if user_skill.name.empty? || user_skill.name.length > 50 %>
                         <%#next if @error %>
-                        <%= render partial: 'user_skills/user_skill', locals: {user_skill: user_skill, i: index} %>
+                        <%= render partial: 'user_skills/user_skill', locals: {user_skill: user_skill, user: @user, i: index} %>
                     <% end %>
                 </div>
                 <%# will_paginate(@user_skills, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>

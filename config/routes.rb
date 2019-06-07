@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'skill_tags/show'
+  get 'skill/show'
+  get 'skill/show'
   get 'sessions/new'
   root "static_pages#home"
   get '/about', to: 'static_pages#about'
@@ -10,4 +13,5 @@ Rails.application.routes.draw do
   resources :users
   resources :user_skills, only: [:index, :create, :destroy]
   resources :endorsements, only: :create
+  resources :skill_tags, only: [:show]
 end

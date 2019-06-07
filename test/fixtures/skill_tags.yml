@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+sleeping:
+  name: "Sleeping"
+  # user_skill: sleep
+
+eating:
+  name: "Eating"
+  # user_skill: eat
+
+chilling:
+  name: "Chilling"
+  # user_skill: most_endorsed

@@ -1,0 +1,6 @@
+<%= form_for(@user_skill) do |f| %>
+    <%= f.hidden_field :name, value: @skill_tag.name %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :skill_tag_id, value: @skill_tag.id %>
+    <%= f.submit "Add skill", class: "btn btn-primary full-width", disabled: @added%>
+<% end %>

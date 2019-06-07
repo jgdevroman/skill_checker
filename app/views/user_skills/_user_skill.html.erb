@@ -1,17 +1,11 @@
 <div id="user-skill-<%= user_skill.id %>" class="skill-item d-flex align-items-center justify-content-between<%= " float-left" if i >= 6%>" >
 
     <div class="d-flex align-items-center">
-        <div class="skill-endorsement-button <%= "disabled" if user_skill.endorsed?(current_user) %>"> 
-            <% condition = !user_skill.endorsed?(current_user) && !current_user?(@user) %>
-            <%= render partial: 'user_skills/endorse', locals: {endorse_skill: user_skill} if condition%>
+        <%= render partial: 'user_skills/endorse_button', locals: {user_skill: user_skill, user: user} %>
     
-            <p class="endorsement-num"><%= user_skill.endorsements_count %></p>
-        </div>
-    
-        <p class="skill-name"><%= user_skill.name %></p>
-        
+        <p class="skill-name"><%= link_to user_skill.name, skill_tag_path(user_skill.skill_tag), style: "color: black" %></p>    
             
-        <% if current_user?(@user) %>
+        <% if current_user?(user) %>
             <%= link_to "×", user_skill, method: :delete, data: {confirm: "Are you sure to delete this skill?"}, class: "delete-link" %>
         <% end %>
     </div>
