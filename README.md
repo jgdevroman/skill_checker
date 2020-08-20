@@ -1,3 +1,6 @@
+***Note***
+<p>This repository is no longer maintained but feel free to look around :)</p>
+
 # Skill Checker
 <p>With this application, you can share your skills and get endorsements to your skills from others.</p>
 <p>You can also recommend a skill to others and endorse their skills.</p>
